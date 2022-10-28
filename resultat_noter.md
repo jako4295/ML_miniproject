@@ -1,6 +1,3 @@
-# Ide til opsumering og visualiering
-
-
 # Fredag, 29 Oct
 ## Test 1
 ### Hyperparams:
