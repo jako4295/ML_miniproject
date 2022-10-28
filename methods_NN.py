@@ -17,22 +17,26 @@ class NumbersDataset(Dataset):
         return self.samples[idx], self.labels[idx]
 
 
-def load_data(dim_type: str) -> list[np.array]:
+def load_data(dim_type: str, smoking: bool) -> list[np.array]:
+    if smoking:
+        path = "data_Smoker/"
+    else:
+        path = "data/"
     match dim_type.lower():
         case "full":
             file_names = [
-                "data/trn_all.csv",
-                "data/tst_all.csv",
+                path+"trn_all.csv",
+                path+"tst_all.csv",
             ]
         case "pca2":
             file_names = [
-                "data/trn_pca2.csv",
-                "data/tst_pca2.csv",
+                path+"trn_pca2.csv",
+                path+"tst_pca2.csv",
             ]
         case "pca10":
             file_names = [
-                "data/trn_pca10.csv",
-                "data/tst_pca10.csv",
+                path+"trn_pca10.csv",
+                path+"tst_pca10.csv",
             ]
         case other:
             raise KeyError("dim_type must be: 'full', 'pca2', or 'pca10'")
