@@ -17,7 +17,7 @@ class NumbersDataset(Dataset):
         return self.samples[idx], self.labels[idx]
 
 
-def load_data(dim_type: str, smoking: bool) -> list[np.array]:
+def load_data(dim_type: str, smoking: bool, as_numpy: bool) -> list[np.array]:
     if smoking:
         path = "data_Smoker/"
     else:
@@ -43,7 +43,10 @@ def load_data(dim_type: str, smoking: bool) -> list[np.array]:
     
     file_names += ["data/trn_labs.csv", "data/tst_labs.csv"]
     
-    return (pd.read_csv(f).to_numpy() for f in file_names)
+    if as_numpy:
+        return (pd.read_csv(f).to_numpy() for f in file_names)
+    else:
+        return (pd.read_csv(f) for f in file_names)
 
 
 class Network(nn.Module):
