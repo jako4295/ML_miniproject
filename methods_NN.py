@@ -54,7 +54,6 @@ class Network(nn.Module):
         super(Network, self).__init__()
         self.device = device
         
-        self.softmax = nn.Softmax(dim=2).to(device)
         self.relu = nn.ReLU().to(device)
         self.l1 = nn.Linear(input_size, hidden_layer_dims[0]).to(device)
         self.ln = nn.Linear(hidden_layer_dims[-1], 2).to(device)
