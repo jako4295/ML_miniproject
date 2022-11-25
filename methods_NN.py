@@ -21,7 +21,7 @@ def load_data(dim_type: str, smoking: bool, as_numpy: bool) -> list[np.array]:
     if smoking:
         path = "data_Smoker/"
     else:
-        path = "data/"
+        path = "data_Diabetes_binary_5050_norm/"
     match dim_type.lower():
         case "full":
             file_names = [
